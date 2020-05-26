@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col text-center">
+        <img src="assets/img/{{intentos}}.png" class="ahorcado-img">
+        <h3>Intentos <small>{{intentos}} / {{limite}}</small></h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col text-center">
+        <h1>{{ palabraOculta }}</h1>
+    </div>
+</div>
+
+<div class="row" *ngIf="gana">
+    <div class="col text-center">
+        <h1 class="victoria">¡Felicidades lo lograste! :D</h1>
+    </div>
+</div>
+
+<div class="row" *ngIf="pierde">
+    <div class="col text-center">
+        <h1 class="derrota">¡Lo sentimos, has perdido! :(</h1>
+        <h4>La palabra oculta era "{{palabra}}"</h4>
+    </div>
+</div>
+
+<div class="row" *ngIf="!gana && !pierde">
+    <div class="col text-center">
+        <button (click)="comprobar( letra )" *ngFor="let letra of letras" class="btn btn-primary" type="button" name="button">
+          {{letra}}
+        </button>
+    </div>
+</div>
